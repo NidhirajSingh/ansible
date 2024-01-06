@@ -12,4 +12,4 @@
 
     - name: DISPLAY OUTPUT
       ansible.builtin.debug:
-        var: result
+        var: result.stdout_lines
