@@ -2,11 +2,13 @@
 - name: EXECUTE SHOW VERSION COMMAND ON TARGET DEVICES
   hosts: all
   gather_facts: false
+  connection: local
   tasks:
     - name: RUN COMMAND
       cisco.ios.ios_command:
         commands: show version
       register: result
+      connection: network_cli
 
     - name: DISPLAY OUTPUT
       ansible.builtin.debug:
