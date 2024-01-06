@@ -1,0 +1,14 @@
+---
+- name: GATEHER IOS FACTS
+  hosts: all
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: CAPTURE IOS FACTS
+      cisco.ios.ios_facts:
+        gather_subset: all
+      connection: network_cli
+
+    - name: DISPLAY OUTPUT
+      ansible.builtin.debug:
+        msg: "Device Name: {{ ansible_net_hostname }} Serial Number: {{ ansible_net_serialnum }}"
