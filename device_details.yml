@@ -11,4 +11,4 @@
 
     - name: DISPLAY OUTPUT
       ansible.builtin.debug:
-        msg: "Device Name: {{ ansible_net_hostname }} Serial Number: {{ ansible_net_serialnum }}"
+        msg: "Device Name: {{ ansible_net_hostname }} Serial Number: {{ ansible_net_serialnum }} ios: {{ ansible_net_version }}"
