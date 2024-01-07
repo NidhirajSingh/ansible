@@ -9,6 +9,23 @@
         gather_subset: all
       connection: network_cli
 
-    - name: DISPLAY OUTPUT
-      ansible.builtin.debug:
-        msg: "Device Name: {{ ansible_net_hostname }} Serial Number: {{ ansible_net_serialnum }} ios: {{ ansible_net_version }}"
+#    - name: DISPLAY OUTPUT
+#      ansible.builtin.debug:
+#        msg: "Device Name: {{ ansible_net_hostname }} Serial Number: {{ ansible_net_serialnum }} ios: {{ ansible_net_version }}"
+
+    - name: Generate email body using Jinja2 template
+      template:
+        src: ios_facts_email_template.j2
+        dest: /tmp/ios_facts_email.txt
+
+#    - name: Send email with Cisco IOS facts
+#      community.general.mail:
+#        host: smtp.your-email-provider.com
+#        port: 587
+#        username: your_email@example.com
+#        password: your_email_password
+#        to: recipient@example.com
+#        subject: "Cisco IOS Facts Report"
+#        body: "{{ lookup('file', '/tmp/ios_facts_email.txt') }}"
+#        secure: starttls
+#      delegate_to: localhost

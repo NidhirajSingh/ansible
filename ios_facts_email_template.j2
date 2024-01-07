@@ -1,0 +1,6 @@
+Cisco IOS Facts Report
+=======================
+
+{% for key, value in ansible_net_facts.items() %}
+{{ key }}: {{ value }}
+{% endfor %}
